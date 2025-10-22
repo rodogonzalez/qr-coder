@@ -21,8 +21,8 @@
   </style>
 
 
- <script type="module" crossorigin src="/assets/index-BNdXeDOT.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-I_tX9o7u.css">
+ <script type="module" crossorigin src="/assets/index.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index.css">
 </head>
 
 <body>
