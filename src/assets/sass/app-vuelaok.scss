@@ -1,0 +1,34 @@
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+// Required
+@import "../../../node_modules/bootstrap/scss/functions";
+
+//@import 'base/variables.scss';
+@import '../../../node_modules/bootstrap/scss/mixins';
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../../node_modules/bootstrap/scss/variables';
+@import '../../../node_modules/bootstrap/scss/variables-dark';
+@import '../../../node_modules/bootstrap/scss/maps';
+@import '../../../node_modules/bootstrap/scss/utilities';
+
+
+.logo{
+
+    background-image: url('../images/info-logo_0.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width:200px;
+    height:160px;
+    display:block;
+    content:"";
+}
+
+.picture_list_item{
+    display:none;
+
+}
+
+.picture_list_item:first-child {
+  /* Styles to apply */
+  display:block!important;
+}

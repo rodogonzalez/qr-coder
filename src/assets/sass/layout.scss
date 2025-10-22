@@ -1,0 +1,145 @@
+.product {
+
+    &_name,
+    &_price,
+    &_qty {
+        text-transform: capitalize;
+
+      
+    }
+
+    &_pos {
+        &_list {
+            display: block;
+            width: 100%;
+            height:60vh;
+            overflow-y: auto;
+
+            &_item {
+                display: inline-block;
+                margin: 4px;
+                width: 300px;
+
+                &_picture {
+                    padding:4px;
+                    img {
+                        width: 75px;
+                        object-fit: cover;
+                        height: 50px;
+                    }
+                }
+
+                &_description {
+                    min-width: 100px;
+                }
+            }
+            &_item:hover {
+                background-color:cornflowerblue;
+            }
+        }
+
+        &_cart {
+            &_item {
+                width: 100%;
+
+            }
+        }
+    }
+}
+
+
+.store {
+
+    &-products {
+        //display: none;
+        //background-color: #ccc;
+        //
+        
+        padding: 0px;
+        width: 100%;
+        
+    }
+}
+ 
+.drawingBuffer {
+    display: none;
+}
+video {
+    width: 100%;
+    max-width: 20vw;
+}
+.card-panel{
+    display: block;
+    a{
+        display:inline-block;
+        text-align: left;
+        border:1px solid #bbb;
+    }
+
+    .btn-icon{
+        
+        &-inventory,
+        &-pos,
+        &-settings{
+            width: 32px;
+            height:32px;
+            display: inline-block;
+            background-size: contain;
+            background-repeat: no-repeat;
+             
+    
+        }
+    
+        &-settings{        
+            background-image: url("../icon/setting.png");
+        }
+        &-pos{
+            background-image: url("../icon/pos.jpg");
+        }
+        &-inventory{
+            background-image: url("../icon/inventory.png");
+        }
+    
+    }
+
+}
+
+
+
+@include media-breakpoint-down(lg) {
+
+    video {
+        width: 100%;
+        max-width: 70vw;
+    }
+
+    .full-mobile-width{
+    display:block;
+    width :98vw;
+  }
+  .container-fluid{
+    width:100vw;
+    padding: 0;
+    .col-7,
+    .col-5,
+    .col-6{
+        width:100vw;
+        display:block;
+        padding:0;
+        padding-left:19px;
+    }
+
+    .product_pos_list{
+        .col-6{
+            
+            width:40vw;
+        }
+        .col-2{
+            padding:0;
+            width:15vw;
+        }
+
+    }
+  }
+}
+
