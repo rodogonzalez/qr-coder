@@ -21,7 +21,7 @@
   </style>
 
 
-  <script type="module" crossorigin src="/assets/index-JKExzrMH.js"></script>
+ <script type="module" crossorigin src="/assets/index-BNdXeDOT.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/index-I_tX9o7u.css">
 </head>
 
