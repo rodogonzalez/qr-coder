@@ -1,6 +1,7 @@
 <script setup>
 import { ref, reactive, onMounted } from "vue";
 import axios from "axios";
+import QrScanner from 'qr-scanner'; 
 
 const url_parser = "/qr-image?data=";
 
@@ -9,6 +10,25 @@ let phone_number = ref("+506");
 let ws_link = "";
 let qr_code = "";
 let qr_type = ref("text");
+let videoElem  =  document.getElementById('qr_scanner_video');
+
+const qrScanner = new QrScanner(
+    videoElem,
+    result => setResult(result)
+    
+    // No options provided. This will use the old api and is deprecated in the current version until next major version.
+);
+
+function init_camera(){
+  qrScanner.start();
+}
+
+function setResult( result) {    
+    console.log(result);
+    mensaje.value=result;
+    setTimeout(init_camera(), 10000);
+}
+
 
 function generateQR() {
 
@@ -32,6 +52,11 @@ function generateQR() {
     //ws_link=
   });
 }
+
+onMounted(() => {
+  init_camera();
+});
+
 </script>
 <template>
   <div class="container">
@@ -62,4 +87,5 @@ function generateQR() {
       </div>
     </div>
   </div>
+  
 </template>
