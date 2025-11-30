@@ -25,7 +25,9 @@ function init_camera(){
 
 function setResult( result) {    
     console.log(result);
+    qrScanner.stop();
     mensaje.value=result;
+    generateQR();
     setTimeout(init_camera(), 10000);
 }
 
