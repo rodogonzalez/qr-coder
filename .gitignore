@@ -2,5 +2,6 @@ node_modules
 vendor
 package-lock.json
 composer.lock
+yarn.lock
 /dist/qr-image/vendor
 /dist/qr-image/composer.lock
