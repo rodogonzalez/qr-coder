@@ -1,6 +1,6 @@
 <?php
 // Register the Composer autoloader...
-//require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 
 /**
@@ -17,7 +17,7 @@ use chillerlan\QRCode\{QRCode, QROptions};
 use chillerlan\QRCode\Data\QRMatrix;
 use chillerlan\QRCode\Output\QRGdImagePNG;
 
-require_once __DIR__.'/../vendor/autoload.php';
+
 
 $options = new QROptions;
 
