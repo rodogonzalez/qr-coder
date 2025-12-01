@@ -25,7 +25,7 @@ function generate_qr( $string_to_generate )
     $options->outputInterface = QRMarkupSVG::class;
     $options->outputBase64    = false;
     // if set to false, the light modules won't be rendered
-    $options->drawLightModules     = true;
+    $options->drawLightModules     = false;
     $options->svgUseFillAttributes = false;
     // draw the modules as circles isntead of squares
     $options->drawCircularModules = false;
