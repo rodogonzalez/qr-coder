@@ -28,8 +28,8 @@ function generate_qr( $string_to_generate )
     $options->drawLightModules     = true;
     $options->svgUseFillAttributes = false;
     // draw the modules as circles isntead of squares
-    $options->drawCircularModules = true;
-    $options->circleRadius        = 0.04;
+    $options->drawCircularModules = false;
+    //$options->circleRadius        = 0.04;
     // connect paths
     $options->connectPaths = true;
 
