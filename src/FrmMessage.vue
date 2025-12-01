@@ -11,6 +11,7 @@ let ws_link = "";
 let qr_code = "";
 let qr_type = ref("text");
 let videoElem  =  document.getElementById('qr_scanner_video');
+let show_qr = false;
 
 const qrScanner = new QrScanner(
     videoElem,
@@ -37,12 +38,13 @@ function generateQR() {
 
   switch(qr_type.value){
     case 'ws':
-      ws_link = "https://wa.me/" + phone_number.value + "?text=" + encodeURI(mensaje.value);
+      ws_link = url_parser + "https://wa.me/" + phone_number.value + "?text=" + encodeURI(mensaje.value);
       break
     default:
-      ws_link = encodeURI(mensaje.value);
+      ws_link = url_parser + encodeURI(mensaje.value);
 
   }
+  console.log( ws_link);
     
   axios({
     method: "get",
@@ -51,12 +53,16 @@ function generateQR() {
     
     //console.log(response);
     qr_code = response.data;
+    show_qr = true;
     //ws_link=
   });
 }
 
-onMounted(() => {
+onMounted(() => { 
+  mensaje.value="";
+  generateQR();
   init_camera();
+  generateQR();
 });
 
 </script>
@@ -78,13 +84,26 @@ onMounted(() => {
 
           <div class="row h-100 card p-4">
             <div class="col-12 col-lg-4">Mensaje</div>
-            <div class="col-12 col-lg-8"><textarea class='w-100 h-100' v-model="mensaje" v-on:keyup="generateQR" /></div>
+            <div class="col-12 col-lg-8"><textarea class='w-100 h-100' v-model="mensaje" 
+              v-on:change="generateQR()"              
+              placeholder="Ingrese el texto que desea convertir en Codigo QR"
+            
+             />
+             
+             <input    :value="mensaje" id="text_message" >
+             
+             </div>
           </div>
         </form>
       </div>
       <div class="col-12 col-lg-4">
         <div v-if="mensaje !=='' ">
-        <a  v-if="qr_type === 'ws'" :href="ws_link" target="_blank">Abrir link</a> <img id="qr_generated" class="qr_image" :src="qr_code" />
+          <span v-if="show_qr">
+            <a  v-if="qr_type === 'ws'" :href="'https://wa.me/'+  phone_number + '?text=' +    mensaje" target="_blank">Abrir link</a> 
+            <img v-if="qr_type === 'ws'"  class="qr_image" :src="url_parser + 'https://wa.me/'+  phone_number + '?text=' +    mensaje"  style="border:1px solid blue" />
+            <img v-if="qr_type === 'text'"  class="qr_image" :src="url_parser + mensaje" style="border:1px solid red" />
+            {{ws_link}}
+        </span>
         </div>
       </div>
     </div>
