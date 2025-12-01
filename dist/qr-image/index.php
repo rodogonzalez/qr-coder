@@ -29,7 +29,7 @@ function generate_qr( $string_to_generate )
     $options->svgUseFillAttributes = false;
     // draw the modules as circles isntead of squares
     $options->drawCircularModules = true;
-    $options->circleRadius        = 0.4;
+    $options->circleRadius        = 0.04;
     // connect paths
     $options->connectPaths = true;
 
@@ -39,19 +39,7 @@ function generate_qr( $string_to_generate )
         QRMatrix::M_ALIGNMENT_DARK,
     ];
     // https://developer.mozilla.org/en-US/docs/Web/SVG/Element/linearGradient
-    $options->svgDefs = '
-	<linearGradient id="rainbow" x1="1" y2="1">
-		<stop stop-color="#000" offset="0"/>
-		<stop stop-color="#000" offset="0.2"/>
-		<stop stop-color="#000" offset="0.4"/>
-		<stop stop-color="#000" offset="0.6"/>
-		<stop stop-color="#1e72b7" offset="0.8"/>
-		<stop stop-color="#ccc" offset="1"/>
-	</linearGradient>
-	<style><![CDATA[
-		.dark{fill: url(#rainbow);}
-		.light{fill: #eee;}
-	]]></style>';
+    $options->svgDefs = '';
 
     $out = (new QRCode($options))->render($string_to_generate);
 
