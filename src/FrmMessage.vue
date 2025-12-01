@@ -104,8 +104,8 @@ onMounted(() => {
         <div v-if="mensaje !=='' ">
           <span v-if="show_qr">
             <a  v-if="qr_type === 'ws'" :href="'https://wa.me/'+  phone_number + '?text=' +    mensaje" target="_blank">Abrir link</a> 
-            <img v-if="qr_type === 'ws'"  class="qr_image" :src="url_parser + 'https://wa.me/'+  phone_number + '?text=' +    mensaje"  style="border:1px solid blue" />
-            <img v-if="qr_type === 'text'"  class="qr_image" :src="url_parser + mensaje" style="border:1px solid red" />
+            <img v-if="qr_type === 'ws'"  class="qr_image" :src="url_parser + 'https://wa.me/'+  phone_number + '?text=' +    mensaje"  />
+            <img v-if="qr_type === 'text'"  class="qr_image" :src="url_parser + mensaje"  />
             {{ws_link}}
         </span>
         </div>
