@@ -13,6 +13,10 @@ let qr_type = ref("text");
 let videoElem  =  document.getElementById('qr_scanner_video');
 let show_qr = false;
 
+
+let qr_ws = 0;
+let qr_text = 0;
+
 const qrScanner = new QrScanner(
     videoElem,
     result => setResult(result)
@@ -44,6 +48,8 @@ function generateQR() {
       ws_link = url_parser + encodeURI(mensaje.value);
 
   }
+
+
   console.log( ws_link);
     
   axios({
@@ -85,12 +91,10 @@ onMounted(() => {
           <div class="row h-100 card p-4">
             <div class="col-12 col-lg-4">Mensaje</div>
             <div class="col-12 col-lg-8"><textarea class='w-100 h-100' v-model="mensaje" 
-              v-on:change="generateQR()"              
-              placeholder="Ingrese el texto que desea convertir en Codigo QR"
-            
-             />
+              
+              placeholder="Ingrese el texto que desea convertir en Codigo QR"/>
              
-             <input    :value="mensaje" id="text_message" >
+            
              
              </div>
           </div>

@@ -21,7 +21,7 @@ function generate_qr( $string_to_generate )
 
     $options = new QROptions;
 
-    $options->version         = 7;
+    $options->version         = QRCode::VERSION_AUTO;
     $options->outputInterface = QRMarkupSVG::class;
     $options->outputBase64    = false;
     // if set to false, the light modules won't be rendered
