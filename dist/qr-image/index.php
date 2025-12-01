@@ -41,12 +41,12 @@ function generate_qr( $string_to_generate )
     // https://developer.mozilla.org/en-US/docs/Web/SVG/Element/linearGradient
     $options->svgDefs = '
 	<linearGradient id="rainbow" x1="1" y2="1">
-		<stop stop-color="#e2453c" offset="0"/>
-		<stop stop-color="#e07e39" offset="0.2"/>
-		<stop stop-color="#e5d667" offset="0.4"/>
-		<stop stop-color="#51b95b" offset="0.6"/>
+		<stop stop-color="#000" offset="0"/>
+		<stop stop-color="#000" offset="0.2"/>
+		<stop stop-color="#000" offset="0.4"/>
+		<stop stop-color="#000" offset="0.6"/>
 		<stop stop-color="#1e72b7" offset="0.8"/>
-		<stop stop-color="#6f5ba7" offset="1"/>
+		<stop stop-color="#ccc" offset="1"/>
 	</linearGradient>
 	<style><![CDATA[
 		.dark{fill: url(#rainbow);}
