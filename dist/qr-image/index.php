@@ -22,7 +22,7 @@ function generate_qr($string_to_generate){
         );
         
         
-        $gdImage = new QRCode($options))->render($string_to_generate));
+        $gdImage = new QRCode($options)->render($string_to_generate);
 
         //$gdImage = (new QRCode($options))->render($data);
 
