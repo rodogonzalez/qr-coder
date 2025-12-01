@@ -14,19 +14,14 @@ function generate_qr($string_to_generate){
     $options  = new QROptions(
             [
                 'eccLevel'   => QRCode::ECC_L,
-                'outputType' => QRGdImageWEBP::class,
-                
-
+                'outputType' => QRGdImageWEBP::class,               
                 'version'    => QRCode::VERSION_AUTO,
             ]
         );
         
         
         $gdImage = new QRCode($options)->render($string_to_generate);
-
-        //$gdImage = (new QRCode($options))->render($data);
-
-        // do stuff with the GdImage instance...
+        
         $size = imagesx($gdImage);
 
         header('Content-type: image/jpeg');
