@@ -112,6 +112,8 @@ function generate_qr($string_to_generate)
 
     header('Content-type: image/png');
 
+    echo $image;
+
 }
 
 
