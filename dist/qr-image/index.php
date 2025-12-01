@@ -24,7 +24,6 @@ function generate_qr($string_to_generate){
 header('content-type: image/svg+xml');
 
 
-
 if (isset($_GET['data'])){
 
     exit (generate_qr($_GET['data']));
