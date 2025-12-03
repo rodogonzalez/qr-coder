@@ -3,7 +3,7 @@ import { ref, reactive, onMounted } from "vue";
 import axios from "axios";
 import QrScanner from 'qr-scanner'; 
 
-const url_parser = "/qr-image?data=";
+const url_parser = "https://www.cryptotaller.com/qr-image?data=";
 
 let mensaje = ref("");
 let phone_number = ref("+506");
@@ -32,11 +32,11 @@ function setResult( result) {
     console.log(result);
     qrScanner.stop();
     mensaje.value=result;
-    generateQR();
+    //generateQR();
     setTimeout(init_camera(), 10000);
 }
 
-
+/*
 function generateQR() {
 
 
@@ -63,12 +63,20 @@ function generateQR() {
     //ws_link=
   });
 }
+*/
+function start_camera(){  
+  init_camera();
+}
+
+function stop_camera(){
+  qrScanner.stop();
+}
+
 
 onMounted(() => { 
   mensaje.value="";
-  generateQR();
-  init_camera();
-  generateQR();
+ 
+  show_qr=true;
 });
 
 </script>
@@ -78,22 +86,22 @@ onMounted(() => {
       <div class="col-lg-8">
         <form>
           <div class="row p-4">
-            <div class="col-12 col-lg-5"><input type="radio" value="text" id="qr_type_text" name="qr_type[]" v-model="qr_type" /> Convertir Texto a QR</div>
-            <div class="col-12 col-lg-5"><input type="radio" value="ws" id="qr_type_ws" name="qr_type[]"  v-model="qr_type"/> Whatsapp link</div>
             
+            <div class="col-12 col-lg-5"><input type="radio" value="text" id="qr_type_text" name="qr_type[]" v-model="qr_type" v-on:change="stop_camera()"/> Convertir Texto a QR</div>
+            <div class="col-12 col-lg-5"><input type="radio" value="ws" id="qr_type_ws" name="qr_type[]"  v-model="qr_type" v-on:change="stop_camera()" /> Whatsapp link</div>
+            <div class="col-12 col-lg-5"><input type="radio" value="read" id="qr_type_text" name="qr_type[]" v-model="qr_type" v-on:change="start_camera()"/> Leer QR</div>
           </div>
 
           <div class="row card p-4" v-if="qr_type === 'ws'">
             <div class="col-12 col-lg-4">Numero</div>
-            <div class="col-12 col-lg-8"><input v-model="phone_number" v-on:keyup="generateQR" /></div>
+            <div class="col-12 col-lg-8"><input v-model="phone_number"  /></div>
           </div>
 
           <div class="row h-100 card p-4">
             <div class="col-12 col-lg-4">Mensaje</div>
             <div class="col-12 col-lg-8"><textarea class='w-100 h-100' v-model="mensaje" 
               
-              placeholder="Ingrese el texto que desea convertir en Codigo QR"/>
-             
+              placeholder="Ingrese el texto que desea convertir en Codigo QR"/>            
             
              
              </div>
@@ -105,8 +113,7 @@ onMounted(() => {
           <span v-if="show_qr">
             <a  v-if="qr_type === 'ws'" :href="'https://wa.me/'+  phone_number + '?text=' +    mensaje" target="_blank">Abrir link</a> 
             <img v-if="qr_type === 'ws'"  class="qr_image" :src="url_parser + 'https://wa.me/'+  phone_number + '?text=' +    mensaje"  />
-            <img v-if="qr_type === 'text'"  class="qr_image" :src="url_parser + mensaje"  />
-            {{ws_link}}
+            <img v-if="qr_type === 'text'"  class="qr_image" :src="url_parser + mensaje"  />            
         </span>
         </div>
       </div>

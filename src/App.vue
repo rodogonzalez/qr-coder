@@ -6,6 +6,7 @@ import FrmComponent from './FrmMessage.vue'
 <template> 
   <main class="container p-0">         
     <frm-component />
+    
   </main>
 </template>
 
