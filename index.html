@@ -13,17 +13,18 @@
       height: 300px;
       border: 1px solid #000;
     }
-    .border_yes{
+
+    .border_yes {
       border: 1px solid #000;
 
     }
   </style>
 
- 
+
 </head>
 
 <body>
-  <div class="container ">    
+  <div class="container ">
 
 
   </div>
@@ -34,11 +35,32 @@
 
 
       </div>
-      <video id="qr_scanner_video"></video>
+      <div class="row" id="video_container_toolbox" style="display:none">
+        <div class="col-12 col-md-4">
+
+          <video id="qr_scanner_video" style="width:100%"></video>
+
+        </div>
+        <div class="col-12 col-md-8">
+
+          <h2>¿Qué dispositivos son compatibles con su escáner de código QR?</h2>
+          <small>Nuestro escáner de código QR funciona con la mayoría de los dispositivos modernos, incluidos:
+            <ul>
+              <li>Teléfonos inteligentes (iOS y Android)</li>
+              <li>Tabletas</li>
+              <li>Portátiles y computadoras de escritorio con cámara en funcionamiento</li>
+            </ul>
+          </small>
+        </div>
+
+
+
+      </div>
+
 
       <div class="col-3 border_yes">
 
-        
+
       </div>
 
     </div>
@@ -46,9 +68,10 @@
   </div>
   <div class="row">
     <div class="container border_yes">
-      
+
     </div>
   </div>
 </body>
 <script type="module" src="/src/main.js"></script>
+
 </html>
