@@ -12,6 +12,10 @@
 @import '../../../node_modules/bootstrap/scss/utilities';
 
 
+
+
+
+
 .logo{
 
     background-image: url('../images/info-logo_0.png');
@@ -32,3 +36,13 @@
   /* Styles to apply */
   display:block!important;
 }
+
+  ul {
+      list-style: none;
+    }
+
+    small {
+        display: flex;
+      i {display:inline-block!important;}
+
+    }
