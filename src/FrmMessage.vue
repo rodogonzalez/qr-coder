@@ -2874,7 +2874,7 @@ const countryList = [
 
 let mensaje = ref("");
 let phone_number = ref("");
-let country_phone_number = ref("");
+let country_phone_number = ref("+506");
 
 let ws_link = "";
 let qr_code = "";
@@ -3021,8 +3021,8 @@ onMounted(() => {
           <div class="row card p-4" v-if="qr_type === 'ws'">
             <div class="col-12 col-lg-4">Codigo de Pais</div>
             <div class="col-12 col-lg-8">
-              <select id="country_phone_number_select" v-model="country_phone_number">
-                <option v-for="country in countryList" :value="'+' + country.dialCode" :key="country.dialCode">
+              <select id="country_phone_number_select" v-model="country_phone_number">                
+                <option v-for="country in countryList" :value="'+' + country.dialCode" :key="country.dialCode" >
                   {{ country.label }} (+{{ country.dialCode }})
                 </option>
               </select>
